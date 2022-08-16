@@ -110,7 +110,7 @@ def example_06_configure_handler(filename=None, format=None, level=logging.INFO)
 
 def example_06():
     FORMAT = '"%(asctime)s",%(module)s,%(name)s,%(levelname)s,"%(message)s"'
-    FILENAME='example_06.log'
+    FILENAME='logs/example_06.log'
 
     logger = example_06_get_logger(level=logging.INFO) # the screen handler won't show debug messages
 
