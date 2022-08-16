@@ -128,7 +128,7 @@ A logger that sends debug messages to the screen and info messages to a file
 '''
 
 FORMAT = '"%(asctime)s",%(module)s,%(funcName)s, %(name)s,%(levelname)s,"%(message)s"'
-FILENAME='example_07.log'
+FILENAME='logs/example_07.log'
 CUSTOM_LEVEL = logging.DEBUG
 
 formatter = logging.Formatter(fmt=FORMAT)
@@ -140,7 +140,7 @@ def example_07_get_logger() -> logging.getLogger:
 
 def example_07_configure_file_handler(filename=FILENAME) -> logging.Handler:
 
-    file_handler = logging.FileHandler(filename=FILENAME, mode='a')
+    file_handler = logging.FileHandler(filename=filename, mode='a')
     file_handler.setLevel(logging.INFO)
     file_handler.setFormatter(formatter)
     return file_handler
