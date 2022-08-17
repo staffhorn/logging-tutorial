@@ -1,0 +1,23 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "logging-tutorial",
+    "section": "",
+    "text": "pip install logging_tutorial"
+  },
+  {
+    "objectID": "index.html#how-to-use",
+    "href": "index.html#how-to-use",
+    "title": "logging-tutorial",
+    "section": "How to use",
+    "text": "How to use\nHere’s a simple example.\n\nfrom logging_tutorial.examples import *\nexample_01()\n\nThis debug message uses print.\n\n\nEach example should work in a standalone fashion.\n\nexample_02()\n\n\"2022-08-17 08:24:44,520\",root,example_02,DEBUG,\"This debug message uses the root logger.\"\n\n\n\nexample_03()\n\n\"2022-08-17 08:25:39,374\",root,INFO,\"This uses the root logger with a custom format, adding context information to each message.\""
+  },
+  {
+    "objectID": "examples.html",
+    "href": "examples.html",
+    "title": "examples",
+    "section": "",
+    "text": "example_01\n\n example_01 ()\n\nExample 01 Print debugging to the screen using print()\n\nexample_01()\n\nThis debug message uses print.\n\n\nThe next example uses logging instead of print(). Note that this is almost as simple as print(). In the following examples, we’ll see why logging is better than print!\n\n\n\nexample_02\n\n example_02 ()\n\nExample 02 Log to the screen with the root logger.\n\nexample_02()\n\n\"This debug message uses the root logger.\"\n\n\nWe can get the root logger from anywhere in our application with logging.getLogger() We already configured the root logger in example_02, but we can modify its behavior here. This illustrates two handy things about logging:\n\nlogging provides access to the loggers from anywhere, so the developer does not have to search the code.\nWe can change the level of messages to suppress debug messages.\n\n\n\n\nexample_03\n\n example_03 ()\n\nExample 03 Add formatting to the root logger.\n\nexample_03()\n\n\"2022-08-17 10:11:46,132\",root,example_03,INFO,\"This uses the root logger with a custom format, adding context information to each message.\"\n\n\n\n\n\nexample_04\n\n example_04 ()\n\nExample 04 Use a named logger that has unique properties from the root logger.\n\nexample_04()\n\n\"2022-08-17 10:11:46,168\",root,example_04,INFO,\"This INFO message will display.\"\n\"2022-08-17 10:11:46,168\",__main__,example_04,DEBUG,\"The __main__ logger is set to a level of DEBUG, so this message displays.\"\n\"2022-08-17 10:11:46,168\",__main__,example_04,INFO,\"Note the __main__ logger uses the format from root.\"\n\n\n\n\n\nexample_05\n\n example_05 ()\n\nExample 05 Log to a file with print()\n\nexample_05()\n\n\n\n\nexample_06\n\n example_06 ()\n\nExample 06 Create and customize a file logger with a logging.Handler that sends log messages to a file and add a custom formatter\n\n\n\nexample_06_configure_handler\n\n example_06_configure_handler (filename:str=None,\n                               format:logging.Formatter=<logging.Formatter\n                               objectat0x7f991aca93f0>, level:int=20)\n\n\n\n\nexample_06_get_logger\n\n example_06_get_logger (level:int=20)\n\nExample 06 Customize our logger with a file handler and a formatter.\n\nexample_06()\n\n\n!cat logs/example_06.log\n\n\"2022-08-17 10:00:11,586\",__main__,example_06,DEBUG,\"Debug messages go to the file logs/example_06.log\"\n\"2022-08-17 10:00:11,586\",__main__,example_06,INFO,\"Info messages go to the file logs/example_06.log and the screen.\"\n\"2022-08-17 10:01:21,863\",__main__,example_06,DEBUG,\"Debug messages go to the file logs/example_06.log\"\n\"2022-08-17 10:10:45,833\",__main__,example_06,DEBUG,\"Debug messages go to the file logs/example_06.log\"\n\"2022-08-17 10:11:46,245\",__main__,example_06,DEBUG,\"Debug messages go to the file logs/example_06.log\"\n\n\n\n\n\nexample_07\n\n example_07 ()\n\n\n\n\nexample_07_configure_screen_handler\n\n example_07_configure_screen_handler ()\n\n\n\n\nexample_07_configure_file_handler\n\n example_07_configure_file_handler (filename:str='logs/example_07.log')\n\n\n\n\nexample_07_get_logger\n\n example_07_get_logger ()\n\n\nexample_07()\n\n\"debug messages just go to the screen.  The screen format is simply the message.\"\n\"Info messages go to screen and file. The file format has more information.\"\n\n\n\n!cat logs/example_07.log\n\n\"2022-08-17 10:00:11,755\",__main__,example_07,INFO,\"Info messages go to screen and file. The file format has more information.\"\n\"2022-08-17 10:11:46,450\",__main__,example_07,INFO,\"Info messages go to screen and file. The file format has more information.\""
+  }
+]
