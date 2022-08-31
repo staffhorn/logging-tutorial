@@ -3,7 +3,7 @@
 # %% auto 0
 __all__ = ['SIMPLE_FORMAT', 'BETTER_FORMAT', 'SimpleFileHandler', 'SimpleScreenHandler']
 
-# %% ../01_utilities.ipynb 5
+# %% ../01_utilities.ipynb 4
 import logging
 SIMPLE_FORMAT = logging.Formatter('"%(message)s"')
 BETTER_FORMAT = logging.Formatter('"%(asctime)s",%(name)s,%(funcName)s,line %(lineno)d,%(levelname)s,"%(message)s"')
@@ -19,7 +19,7 @@ class SimpleFileHandler(logging.FileHandler):
         self.setLevel(logging.INFO)
         self.setFormatter(fmt=BETTER_FORMAT)
 
-# %% ../01_utilities.ipynb 6
+# %% ../01_utilities.ipynb 5
 class SimpleScreenHandler(logging.StreamHandler):
     import sys
     def __init__(self,stream=sys.stdout,**kwargs):
