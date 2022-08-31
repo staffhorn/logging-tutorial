@@ -100,7 +100,6 @@ def example_06_configure_handler(
     format:logging.Formatter=SIMPLE_FORMAT, 
     level:int=logging.INFO) -> logging.Handler:
     
-
     if filename is not None:
         handler = logging.FileHandler(filename=filename, mode='a')
         handler.setFormatter(fmt=BETTER_FORMAT)
@@ -140,7 +139,7 @@ def example_07_get_logger() -> logging.Logger:
     return logger
 
 def example_07():
-    from logging_tutorial.utilities import SimpleFileHandler
+    from logging_tutorial.utilities import SimpleFileHandler, SimpleScreenHandler
     FILENAME='logs/example_07.log'
     logger = example_07_get_logger()
     logger.handlers.clear()
@@ -159,6 +158,7 @@ def example_08() -> None:
     Create a tree view of the logger data structure using the python logging_tree module.
     '''
     import logging_tree
+    fr
 
     logger = example_07_get_logger()
     logger.handlers.clear()
