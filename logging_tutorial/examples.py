@@ -158,7 +158,7 @@ def example_08() -> None:
     Create a tree view of the logger data structure using the python logging_tree module.
     '''
     import logging_tree
-    fr
+    from logging_tutorial.utilities import SimpleFileHandler, SimpleScreenHandler
 
     logger = example_07_get_logger()
     logger.handlers.clear()
@@ -181,9 +181,13 @@ class SimpleGMailHandler(SMTPHandler):
         
         import os
         kwargs.setdefault('mailhost', ('smtp.gmail.com',587))
-        fromaddr = kwargs.setdefault('fromaddr', os.environ['gmail_app_sender'])
+        try: 
+            fromaddr = kwargs.setdefault('fromaddr', os.environ['gmail_app_sender'])
+            kwargs.setdefault('credentials', (fromaddr, os.environ['gmail_app_pass']))
+        except Exception as e:
+            logging.ERROR("You haven't set the gmail credentials.")
+            raise e
         kwargs.setdefault('toaddrs', [fromaddr])
-        kwargs.setdefault('credentials', (fromaddr, os.environ['gmail_app_pass']))
         kwargs.setdefault('subject',f'ALERT from {__name__}')
         kwargs.setdefault('secure',())
 
@@ -234,6 +238,8 @@ def example_10():
     Example 10
     Test the time required to log to STDOUT, a file, and email.
     '''
+
+    from logging_tutorial.utilities import SimpleFileHandler, SimpleScreenHandler
     
     file_logger = logging.getLogger('File')
     file_logger.setLevel(logging.INFO)
