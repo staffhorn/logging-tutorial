@@ -279,4 +279,3 @@ def example_10():
     logging.debug(f"file logger   {file_time:0.4f} seconds.")
     logging.debug(f"SMTP logger   {smtp_time:0.4f} seconds.")
 
-
