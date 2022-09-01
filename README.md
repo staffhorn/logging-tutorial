@@ -1,2 +1,1 @@
 Python logging examples.
-test
