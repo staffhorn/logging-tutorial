@@ -3,7 +3,8 @@
 # %% auto 0
 __all__ = ['SIMPLE_FORMAT', 'BETTER_FORMAT', 'SUBJECT', 'example_01', 'example_02', 'example_03', 'example_04', 'example_05',
            'example_06_get_logger', 'example_06_configure_handler', 'example_06', 'example_07_get_logger', 'example_07',
-           'example_08', 'SimpleGMailHandler', 'example_09', 'time_logger', 'example_10']
+           'example_08', 'SimpleFileHandler', 'SimpleScreenHandler', 'SimpleGMailHandler', 'example_09', 'time_logger',
+           'example_10']
 
 # %% ../00_examples.ipynb 3
 import logging
@@ -139,7 +140,6 @@ def example_07_get_logger() -> logging.Logger:
     return logger
 
 def example_07():
-    from logging_tutorial.utilities import SimpleFileHandler, SimpleScreenHandler
     FILENAME='logs/example_07.log'
     logger = example_07_get_logger()
     logger.handlers.clear()
@@ -168,6 +168,28 @@ def example_08() -> None:
 
 
 # %% ../00_examples.ipynb 23
+class SimpleFileHandler(logging.FileHandler):
+    '''
+    a simple FileHandler class that uses some good defaults for the example module
+    '''
+    
+    def __init__(self, filename='logs/example.log', **kwargs):
+        # if filename is in kwargs use it, otherwise give it FILENAME
+        super().__init__(filename=filename, **kwargs)
+        self.setLevel(logging.INFO)
+        self.setFormatter(fmt=BETTER_FORMAT)
+        
+class SimpleScreenHandler(logging.StreamHandler):
+    '''
+    a simple StreamHandler class with good defaults that sends text to stdout
+    '''
+    import sys
+    def __init__(self,stream=sys.stdout,**kwargs):
+        super().__init__(stream, **kwargs)
+        self.setLevel(logging.DEBUG)
+        self.setFormatter(fmt=SIMPLE_FORMAT)
+
+# %% ../00_examples.ipynb 24
 '''
 Example 09
 Configure logging to send email via a gmail account.
@@ -205,7 +227,7 @@ def example_09():
     logger.addHandler(SimpleGMailHandler())
     logger.error('''Simulated alert. There is no emergency.''')
 
-# %% ../00_examples.ipynb 25
+# %% ../00_examples.ipynb 26
 """
  Copyright 2022 "Holistic Mathematics Agency".
  SPDX-License-Identifier: Apache-2.0
@@ -238,8 +260,6 @@ def example_10():
     Example 10
     Test the time required to log to STDOUT, a file, and email.
     '''
-
-    from logging_tutorial.utilities import SimpleFileHandler, SimpleScreenHandler
     
     file_logger = logging.getLogger('File')
     file_logger.setLevel(logging.INFO)
