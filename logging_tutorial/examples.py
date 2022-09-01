@@ -180,7 +180,6 @@ def example_08() -> None:
     Create a tree view of the logger data structure using the python logging_tree module.
     '''
     import logging_tree
-    from logging_tutorial.utilities import SimpleFileHandler, SimpleScreenHandler
 
     logger = example_07_get_logger()
     logger.handlers.clear()
