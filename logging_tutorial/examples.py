@@ -3,7 +3,7 @@
 # %% auto 0
 __all__ = ['SIMPLE_FORMAT', 'BETTER_FORMAT', 'SUBJECT', 'example_01', 'example_02', 'example_03', 'example_04', 'example_05',
            'example_06_get_logger', 'example_06_configure_handler', 'example_06', 'example_07_get_logger', 'example_07',
-           'example_08', 'SimpleFileHandler', 'SimpleScreenHandler', 'SimpleGMailHandler', 'example_09', 'time_logger',
+           'SimpleFileHandler', 'SimpleScreenHandler', 'example_08', 'SimpleGMailHandler', 'example_09', 'time_logger',
            'example_10']
 
 # %% ../00_examples.ipynb 3
@@ -151,23 +151,7 @@ def example_07():
 
 
 
-# %% ../00_examples.ipynb 21
-def example_08() -> None:
-    '''
-    Example 08
-    Create a tree view of the logger data structure using the python logging_tree module.
-    '''
-    import logging_tree
-    from logging_tutorial.utilities import SimpleFileHandler, SimpleScreenHandler
-
-    logger = example_07_get_logger()
-    logger.handlers.clear()
-    logger.addHandler(SimpleScreenHandler())
-    logger.addHandler(SimpleFileHandler('logs/example_08.log'))
-    logging_tree.printout()
-
-
-# %% ../00_examples.ipynb 23
+# %% ../00_examples.ipynb 19
 class SimpleFileHandler(logging.FileHandler):
     '''
     a simple FileHandler class that uses some good defaults for the example module
@@ -188,6 +172,22 @@ class SimpleScreenHandler(logging.StreamHandler):
         super().__init__(stream, **kwargs)
         self.setLevel(logging.DEBUG)
         self.setFormatter(fmt=SIMPLE_FORMAT)
+
+# %% ../00_examples.ipynb 22
+def example_08() -> None:
+    '''
+    Example 08
+    Create a tree view of the logger data structure using the python logging_tree module.
+    '''
+    import logging_tree
+    from logging_tutorial.utilities import SimpleFileHandler, SimpleScreenHandler
+
+    logger = example_07_get_logger()
+    logger.handlers.clear()
+    logger.addHandler(SimpleScreenHandler())
+    logger.addHandler(SimpleFileHandler('logs/example_08.log'))
+    logging_tree.printout()
+
 
 # %% ../00_examples.ipynb 24
 '''
