@@ -52,8 +52,4 @@ d = { 'settings': { 'allowed_cell_metadata_keys': '',
                                            'logging_tutorial.examples.example_08': 'https://staffhorn.github.io/logging_tutorial/examples.html#example_08',
                                            'logging_tutorial.examples.example_09': 'https://staffhorn.github.io/logging_tutorial/examples.html#example_09',
                                            'logging_tutorial.examples.example_10': 'https://staffhorn.github.io/logging_tutorial/examples.html#example_10',
-                                           'logging_tutorial.examples.time_logger': 'https://staffhorn.github.io/logging_tutorial/examples.html#time_logger'},
-            'logging_tutorial.utilities': { 'logging_tutorial.utilities.BETTER_FORMAT': 'https://staffhorn.github.io/logging_tutorial/utilities.html#better_format',
-                                            'logging_tutorial.utilities.SIMPLE_FORMAT': 'https://staffhorn.github.io/logging_tutorial/utilities.html#simple_format',
-                                            'logging_tutorial.utilities.SimpleFileHandler': 'https://staffhorn.github.io/logging_tutorial/utilities.html#simplefilehandler',
-                                            'logging_tutorial.utilities.SimpleScreenHandler': 'https://staffhorn.github.io/logging_tutorial/utilities.html#simplescreenhandler'}}}
+                                           'logging_tutorial.examples.time_logger': 'https://staffhorn.github.io/logging_tutorial/examples.html#time_logger'}}}
