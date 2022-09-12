@@ -1,0 +1,2 @@
+[nbdev]
+logging_tutorial = logging_tutorial._modidx:d

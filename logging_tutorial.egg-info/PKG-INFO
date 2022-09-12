@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: logging-tutorial
+Version: 0.0.1
+Summary: Examples to support the python logging tutorial.
+Home-page: https://github.com/staffhorn/logging-tutorial/
+Author: staffhorn
+Author-email: slett@holisticmath.com
+License: Apache Software License 2.0
+Keywords: nbdev
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: License :: OSI Approved :: Apache Software License
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+License-File: LICENSE
+
+Python logging examples.
